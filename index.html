@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head lang="en">
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta property="og:title" content="HackUCI 2018">
+  <meta property="og:description" content="Create. Connect. Inspire. Join us as we gather the tech community from all over Orange County in a spectacular display of ideas, ambition, and talent.">
+  <meta property="og:image" content="https://www.hackuci.com/images/banner.png">
+  <meta property="og:url" content="https://www.hackuci.com">
+  <meta property="og:site_name" content="HackUCI">
+  <meta name="twitter:card" content="summary_large_image">
+  <title> HackUCI 2018 </title>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+  
+  <script src="js/app.js"></script>
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.0/dist/semantic.min.css">
+  <script async src="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.0/dist/semantic.min.js"></script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" as="style" onload="this.rel='stylesheet'">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700" rel="stylesheet">
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="./images/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./images/icons/favicon-16x16.png">
+</head>
+<body ng-controller="ScheduleCtrl">
+  <!-- Navbar -->
+  <div id="navbar">
+    <!-- Navbar for desktop -->
+    <div class="navbar ui grid computer only">
+      <div class="logo-header logo-header__spinning" ui-sref="app.home" href="/">
+        <img src="./images/logo-cog.svg">
+      </div>
+      <div class="logo-header" ui-sref="app.home" href="/">
+        <img src="./images/logo-anteater.svg">
+      </div>
+      <div class="logo-header_live center">
+        LIVE
+      </div>
+      <div class="navbar-menu">
+        <a class="menu-item menu-item-active">
+          SCHEDULE
+        </a>
+        <a href="https://hackuci2018.slack.com" target="_blank" class="menu-item">
+          SLACK
+          <i class="fa fa-external-link"></i>
+        </a>
+        <a href="https://hackuci2018.devpost.com/" target="_blank" class="menu-item">
+          DEVPOST
+          <i class="fa fa-external-link"></i>
+        </a>
+        <a href="/" class="menu-item menu-item--highlight">
+          EVENT
+        </a>
+      </div>
+    </div>
+    <!-- Hamburger menu button for mobile -->
+    <div class="navbar-mobile ui grid mobile only tablet only">
+      <div class="navbar-mobile-menu-button">
+        <i class="fa fa-bars navbar-mobile-menu-icon" aria-hidden="true"></i>
+      </div>
+    </div>
+  </div>
+  <!-- End navbar -->
+  <!-- Navbar modal for mobile -->
+  <div id="navbar-modal" class="ui modal navbar-modal">
+    <div class="header">
+      <span class="modal-title">Menu</span>
+      <div class="navbar-mobile-menu-close-button">
+        <i class="fa fa-times navbar-mobile-menu-close-icon" aria-hidden="true"></i>
+      </div>
+    </div>
+    <div class="content">
+      <div class="navbar-mobile-menu">
+        <a href="/" class="menu-item" ng-click="onMenuClick()">
+          HOME
+        </a>
+        <a href="https://hackuci2018.slack.com" target="_blank" class="menu-item" ng-click="onMenuClick()">
+          SLACK
+          <i class="fa fa-external-link"></i>
+        </a>
+        <a href="https://hackuci2018.devpost.com/" target="_blank" class="menu-item" ng-click="onMenuClick()">
+          DEVPOST
+          <i class="fa fa-external-link"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- End navbar modal for mobile -->
+  <div id="schedule">
+    <section id="hero" class="center">
+      <!-- Hero logo on mobile -->
+      <div class="logo-header-container ui grid mobile only tablet only">
+        <div class="logo-header logo-header__spinning">
+          <img src="./images/logo-cog.svg">
+        </div>
+        <div class="logo-header">
+          <img src="./images/logo-anteater.svg">
+        </div>
+      </div>
+      <!-- End hero logo on mobile -->
+
+      <!-- Countdown timer -->
+      <div class="countdown-container">
+        <span class="countdown-segment">
+          <span class="countdown countdown--bold" ng-style="{ 'opacity' : countdownOpacity }">
+            {{ hours }}
+          </span>
+          <span class="countdown" ng-style="{ 'opacity' : countdownOpacity }">
+            Hours
+          </span>
+        </span>
+        <span class="countdown-segment">
+          <span class="countdown countdown--bold countdown--fixed" ng-style="{ 'opacity' : countdownOpacity }">
+            {{ minutes }}
+          </span>
+          <span class="countdown" ng-style="{ 'opacity' : countdownOpacity }">
+            Min
+          </span>
+        </span>
+        <span class="countdown-segment">
+          <span class="countdown countdown--bold countdown--fixed" ng-style="{ 'opacity' : countdownOpacity }">
+            {{ seconds }}
+          </span>
+          <span class="countdown" ng-style="{ 'opacity' : countdownOpacity }">
+            Sec
+          </span>
+        </span>
+      </div>
+      <!-- End countdown timer -->
+
+      <!-- SVG curve -->
+      <div class="hero-border">
+        <svg version="1.1" id="circle" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1920 380" xml:space="preserve" preserveAspectRatio="none">
+          <path fill="#fff" d="M0,309c0,0,340,70.8,960,70.8c620,0.2,960-70.8,960-70.8v71H0" transform="translate(0 1)"></path>
+        </svg>
+      </div>
+      <!-- End SVG curve -->
+    </section>
+
+    <section id="schedule-container">
+      <!-- Loop through the array of schedules and print them out -->
+      <div class="schedule-box ui stackable" ng-class="{ 'one column grid' : schedule.length === 1, 'two column grid' : schedule.length === 2, 'three column grid' : schedule.length >= 3 }">
+        <div class="column" ng-repeat="day in schedule">
+          <div class="title">
+            {{ day.day }}
+          </div>
+          <div class="schedule-list">
+            <div class="schedule" ng-repeat="event in day.schedule">
+              <span class="schedule-title">
+                {{ event.name }}
+              </span>
+              <span class="schedule-time">
+                {{ event.time }}
+              </span>
+              <span class="schedule-location">
+                {{ event.location }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

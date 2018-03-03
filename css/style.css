@@ -1,0 +1,475 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 1.02em;
+}
+
+body {
+  font-family: Rubik, sans-serif;
+  font-weight: 300;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Keyframes */
+@keyframes fadein {
+  from {
+      opacity: 0
+  }
+
+  to {
+      opacity: 1
+  }
+}
+
+@keyframes spin {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+/* Navbar */
+#navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  font-family: 'Rubik', sans-serif;
+  color: white;
+  font-weight: 300;
+  font-size: 0.8em;
+  letter-spacing: 0.07em;
+}
+
+#navbar .navbar {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  position: absolute;
+  background: none;
+  margin: 0 !important;
+  transition: all 0.2s ease;
+  animation: fadein 0.5s both;
+  animation-delay: 0.1s;
+}
+
+#navbar .navbar-transparent {
+  position: absolute;
+  background: none;
+  padding-top: 35px;
+  transition: all 0.2s ease;
+}
+
+#navbar .navbar-transparent .logo-header {
+  margin-top: 0;
+}
+
+#navbar .logo-header {
+  animation: fadein 0.5s both;
+  animation-delay: 0.15s;
+  width: 65px;
+  height: 65px;
+  top: 20px;
+  left: 50px;
+  padding: 0;
+  margin-top: 0 !important;
+  position: absolute;
+  cursor: pointer;
+  margin-top: -17.5px;
+  transition: all 0.2s ease;
+}
+
+#navbar .logo-header__spinning {
+  animation: spin 12s linear infinite;
+}
+
+#navbar .logo-header > img {
+  height: 100%;
+}
+
+#navbar .logo-header > span {
+  font-weight: 700;
+  font-size: 1.5em;
+  padding-left: 0.5em;
+  letter-spacing: 0.02em;
+  color: white;
+  margin-top: -1px;
+}
+
+#navbar .logo-header_live {
+  font-weight: 500;
+  font-size: 1.9em;
+  padding-left: 130px;
+  letter-spacing: 0.06em;
+}
+
+#navbar .navbar-menu {
+  display: flex;
+  flex: 1 0 auto;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0;
+  padding-right: 50px;
+}
+
+#navbar .menu-item {
+  color: rgba(255, 255, 255, 0.95);
+  cursor: pointer;
+  line-height: 2em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0);
+  transition: all 0.2s ease;
+}
+
+#navbar .menu-item i {
+  margin-left: 1px;
+}
+
+#navbar .menu-item+.menu-item:not(.menu-item--highlight) {
+  margin-left: 3%;
+}
+
+#navbar .menu-item:hover {
+  color: rgba(255, 255, 255, 1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.95);
+}
+
+#navbar .menu-item-active {
+  color: rgba(255, 255, 255, 1);
+  border-bottom: 1px solid rgba(255, 255, 255, 1);
+}
+
+#navbar .menu-item--highlight {
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 25px;
+  padding: 9px 25px;
+  margin-left: 2.5%;
+  background-color: transparent;
+  transition: all 0.2s ease;
+}
+
+#navbar .menu-item--highlight.menu-item-active {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+#navbar .menu-item--highlight:hover {
+  background-color: white;
+  color: #6b8dd6;
+  border: 1px solid rgba(255, 255, 255, 1);
+}
+
+#navbar .navbar-mobile {
+  width: 100%;
+  height: 70px;
+  padding: 10px 30px;
+  background: linear-gradient(-225deg, #2cd8d5 0%, #6b8dd6 48%, #8e37d7 100%);
+  display: flex;
+  background: none;
+  margin: 0 !important;
+  animation: fadein 0.2s both;
+  transition: all 0.2s ease;
+}
+
+#navbar .navbar-mobile .logo-header {
+  margin-top: 0;
+  height: 50px;
+  top: 10px;
+  left: 10px;
+  right: 0;
+  text-align: center;
+}
+
+#navbar .navbar-mobile .navbar-mobile-menu-button {
+  display: flex;
+  flex: 1 0 auto;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0;
+  font-size: 2em;
+  z-index: 999;
+}
+
+@media (max-width: 767px) {
+  #navbar .navbar {
+    justify-content: center;
+  }
+}
+
+.ui.modals {
+  padding: 0;
+}
+
+#navbar-modal {
+  height: 100%;
+  margin: 0 !important;
+  position: absolute !important;
+  left: 15%;
+  width: 85%;
+  border-radius: 0;
+  top: 0 !important;
+}
+
+#navbar-modal .header {
+  display: flex;
+  padding-left: 30px !important;
+  padding-right: 30px !important;
+  height: 70px;
+  align-items: center;
+  border-radius: 0;
+  color: white;
+  background: linear-gradient(-225deg, #2cd8d5 0%, #6b8dd6 48%, #8e37d7 100%);
+}
+
+#navbar-modal .content {
+  padding-left: 30px !important;
+  padding-right: 30px !important;
+  font-size: 1.2em;
+}
+
+#navbar-modal .navbar-mobile-menu-close-button {
+  display: flex;
+  flex: 1 0 auto;
+  justify-content: flex-end;
+  align-item: center;
+  padding: 0;
+  font-size: 1.2em;
+  z-index: 999;
+}
+
+#navbar-modal .menu-item {
+  display: block;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+#schedule {
+  height: 100%;
+}
+
+#schedule #hero {
+  width: 100%;
+  height: calc(50vh + 49px);
+  position: fixed;
+  animation: fadein 0.5s both;
+  animation-delay: 0.15s;
+}
+
+#schedule #hero::before {
+  content: '';
+  background-image: linear-gradient(to bottom right, #02ccba 0%, #3d99be 31%, #9848d5 100%);
+  opacity: 0.8;
+  width: 100%;
+  left: 0;
+  height: calc(50vh + 50px);
+  position: fixed;
+}
+
+#schedule .logo-header-container {
+  height: 100px;
+  margin: 0 0 5% 0;
+  animation: fadein 0.5s both;
+  animation-delay: 0.15s;
+}
+
+#schedule .logo-header {
+  height: 100px;
+  position: absolute;
+  top: 55px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+#schedule .logo-header__spinning {
+  animation: spin 12s linear infinite;
+}
+
+#schedule .logo-header > img {
+  height: 100%;
+}
+
+#schedule .hero-border {
+  width: 100%;
+  height: 181px;
+  position: fixed;
+  top: calc(50vh - 82px);
+  left: 0;
+  z-index: 2;
+}
+
+@media (max-width: 767px) {
+  #schedule .hero-border {
+    height: 182px;
+  }
+}
+
+#schedule .hero-border svg {
+  width: 100%;
+  height: calc(45% + 51px);
+  position: absolute;
+  vertical-align: bottom;
+}
+
+#schedule .countdown-container {
+  position: relative;
+  z-index: 2;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 5vh;
+  font-size: 2.5em;
+  text-align: center;
+  letter-spacing: 8px;
+  animation: fadein 0.5s both;
+  animation-delay: 0.3s;
+}
+
+#schedule .countdown-container:after {
+  content: " ";
+  width: 200px;
+  display: block;
+  margin: 1em auto 0;
+  border-bottom: 3px solid #fff;
+}
+
+@media (max-width: 767px) {
+  #schedule .countdown-container {
+    margin-top: 55px;
+    font-size: 1.25em;
+    letter-spacing: 3px;
+  }
+
+  #schedule .countdown-container:after {
+    width: 150px;
+    border-bottom: 2px solid #fff;
+  }
+
+  #schedule .countdown-segment .countdown--fixed {
+    width: 30px;
+  }
+}
+
+#schedule .countdown {
+  font-weight: 300;
+}
+
+#schedule .countdown--bold {
+  font-weight: 500;
+}
+
+#schedule .countdown--fixed {
+  width: 65px;
+  display: inline-block;
+}
+
+#schedule #schedule-container {
+  position: relative;
+  z-index: 1000;
+  color: #fff;
+  animation: fadein 0.5s both;
+  animation-delay: 0.45s;
+}
+
+#schedule #schedule-container .schedule-box {
+  width: 85%;
+  margin: 40vh auto 5% auto !important;
+  left: 0;
+  right: 0;
+  border-radius: 15px;
+  box-shadow: 0 2px 16px rgba(24, 51, 59, .35);
+  background: rgba(52, 73, 94, 0.99);
+  position: absolute;
+  z-index: 1000;
+}
+
+@media (min-width: 768px) {
+  #schedule #schedule-container .schedule-box {
+    padding: 0 1%;
+  }
+
+  #schedule #schedule-container .column + .column:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    z-index: 100;
+    top: 25%;
+    width: 1px;
+    height: 50%;
+    background: white;
+    animation: fadein 0.5s both;
+    animation-delay: 0.75s;
+  }
+}
+
+#schedule #schedule-container .title {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 1.25em;
+  letter-spacing: 0.1em;
+  margin: 2.5% 0 5%;
+  animation: fadein 0.5s both;
+  animation-delay: 0.65s;
+}
+
+#schedule #schedule-container .schedule-list {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2%;
+}
+
+#schedule #schedule-container .schedule-list .schedule {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: .7em;
+  animation: fadein 0.5s both;
+  animation-delay: 0.75s;
+}
+
+#schedule #schedule-container .schedule-list .schedule .schedule-title {
+  width: 65%;
+  font-weight: 400;
+  font-size: 0.95em;
+  letter-spacing: 0.07em;
+  line-height: 1.4em;
+}
+
+#schedule #schedule-container .schedule-list .schedule .schedule-time {
+  width: 35%;
+  text-align: right;
+  color: #02ccba;
+  font-weight: 400;
+  font-size: 0.85em;
+  letter-spacing: 0.02em;
+}
+
+#schedule #schedule-container .schedule-list .schedule .schedule-location {
+  font-size: 0.8em;
+  letter-spacing: 0.05em;
+  line-height: 1.5em;
+  color: rgba(236, 240, 241, 0.9);
+}
+
+@media (max-width: 767px) {
+  #schedule #schedule-container .schedule-list {
+    width: 97%;
+    margin-right: 1%;
+  }
+
+  #schedule #schedule-container .schedule-list .schedule .schedule-title {
+    width: 60%;
+    letter-spacing: 0.04em;
+  }
+
+  #schedule #schedule-container .schedule-list .schedule .schedule-time {
+    width: 40%;
+  }
+
+  #schedule #schedule-container .schedule-list .schedule .schedule-location {
+    letter-spacing: 0.03em;
+  }
+}
