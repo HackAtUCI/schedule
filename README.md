@@ -10,13 +10,13 @@ Simple, responsive schedule template for hackathons. Built on Angular.js, it tak
 
 ## Screenshots
 #### Desktop
-!(Desktop)[/screenshots/desktop.png]
+![Desktop](/screenshots/desktop.png])
 
 #### Desktop (Two-day Schedule)
-!(Desktop with two-day schedule)[/screenshots/desktop_dual.png]
+![Desktop with two-day schedule](/screenshots/desktop_dual.png)
 
 #### Mobile
-!(Mobile)[/screenshots/mobile.png]
+![Mobile](/screenshots/mobile.png])
 
 ## Setup
 1. Clone the repository.
