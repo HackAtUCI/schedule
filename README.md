@@ -8,6 +8,9 @@ Simple, responsive schedule template for hackathons. Built on Angular.js, it tak
 * Navigation bar for easier access to Devpost, Slack, etc.
 * Responsive, works on mobile!
 
+## Demo
+You can see a live demo [here](https://schedule-demo.hackuci.com).
+
 ## Screenshots
 #### Desktop
 ![Desktop](/screenshots/desktop.png)
@@ -25,6 +28,3 @@ Simple, responsive schedule template for hackathons. Built on Angular.js, it tak
 4. Update the branding.
 5. Update the URLs on the navbar.
 6. You’re good to go!
-
-## Contributing
-All contributions are welcome and appreciated!
